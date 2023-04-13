@@ -1,0 +1,23 @@
+export default {
+    downloadHtml() {
+        var data = new Blob(["Exemplo de Texto"]);
+  
+        var downloadLink = document.getElementById("aDownloadTxt");
+        if (downloadLink == null) {
+          downloadLink = document.createElement('a');
+          downloadLink.setAttribute('download', 'arquivo.html');
+          downloadLink.setAttribute('id', 'aDownloadTxt');
+          document.body.appendChild(downloadLink);
+        }
+  
+        downloadLink.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(data));
+        downloadLink.href = URL.createObjectURL(data);
+  
+        downloadLink.style.display = 'none';
+        downloadLink.click();
+  
+        TypeCss.downloadcss(this.style.top, this.style.topOther, this.style.fundo,  
+        this.style.fundoBox, this.style.fundoText, this.style.footer, this.style.botao, 
+        this.style.botaoText )
+      }
+}
