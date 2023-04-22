@@ -1,17 +1,16 @@
 export default {
-    downloadcss(corTopo, corTextTopo, corBody, corBox, corTextBody,
-      corFooter, corBotao, textBotao, posicao, fundo, fundoImagem) {
+    downloadcss(style, param) {
         var lado = ''
         var imgOrColor = ''
-        if(posicao == true) {
+        if(style.posicao == true) {
           lado = 'right: 0.1%;'
         } else {
           lado = 'left: 0.1%;'
         }
-        if(fundo == true) {
-          imgOrColor = fundoImagem
+        if(param.fundo == true) {
+          imgOrColor = style.fundoImagem
         } else {
-          imgOrColor = 'background: '+corBody
+          imgOrColor = 'background: '+ style.fundo
         }
 
         var css = new Blob([`
@@ -28,7 +27,7 @@ export default {
           
           .card__api .card__api--top {
             display: flex;
-            background: ${corTopo};
+            background: ${style.top};
             padding: 5px 5px 10px;
             border-radius: 5px 5px 0 0;
           }
@@ -39,7 +38,7 @@ export default {
           
           .card__top--title h3 {
             margin: 10px 0 0;
-            color: ${corTextTopo};
+            color: ${style.topOther};
             font-family: sans-serif;
             letter-spacing: 1px;
             font-size: 18px;
@@ -48,7 +47,7 @@ export default {
           
           .card__top--title p {
             margin: 0px;
-            color: ${corTextTopo};
+            color: ${style.topOther};
             font-family: sans-serif;
             font-size: 15px;
           }
@@ -78,7 +77,7 @@ export default {
             margin: 0 0 0 20px;
             right: 0;
             position: absolute;
-            color: ${corTextTopo};
+            color: ${style.topOther};
           }
           
           .card--x:hover {
@@ -107,14 +106,14 @@ export default {
             display: grid;
             margin-left: 15px;
             border-radius: 7px;
-            background: ${corBox};
+            background: ${style.fundoBox};
           }
           
           .card__api .card__api--body--right p {
             font-family: sans-serif;
             margin: 10px 0 -10px 15px;
             text-align: initial;
-            color: ${corTextBody};
+            color: ${style.fundoText};
           }
           
           .card__api .card__api--body--right span {
@@ -122,13 +121,13 @@ export default {
             padding: 5px 7px 3px;
             font-size: 12px;
             font-family: sans-serif;
-            color: ${corTextBody};
+            color: ${style.fundoText};
           }
           
           .card__api .card__api--footer {
             border-radius: 0 0 5px 5px;
             display: grid;
-            background: ${corFooter};
+            background: ${style.footer};
           }
           
           .card__api .card__api--footer .btn {
@@ -140,8 +139,8 @@ export default {
             text-decoration-line: none;
             border-radius: 10px;
             text-align: center;
-            color: ${textBotao};
-            background: ${corBotao};
+            color: ${style.botaoText};
+            background: ${style.botao};
           }
           
           .card__api .card__api--footer span {

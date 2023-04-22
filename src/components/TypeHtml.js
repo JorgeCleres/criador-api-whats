@@ -1,29 +1,29 @@
 export default {
-    downloadHtml(titulo, subtitle, botao, texto, numero, segundoNumero, segundoBotao, segundoBotaoTexto) {
+    downloadHtml(text, param, seconndNewNumber, newNumber) {
         var datahtml = ''
-        if (segundoBotao) {
+        if (param.otherNumber) {
             datahtml = new Blob([`
-            <link rel="stylesheet" href="api.css">
-            <script type="text/javascript" src="api.js"></script>
+            <link rel="stylesheet" href="./api/api.css">
+            <script type="text/javascript" src="./api/api.js"></script>
             <div class="card__api">
                 <div class="card__api--top">
                     <div class="card__top--title">
-                        <h3>${titulo}</h3>
-                        <p>${subtitle}</p>
+                        <h3>${text.titulo}</h3>
+                        <p>${text.subtitle}</p>
                     </div>
                     <span class="card--x" onclick="fechar_api()">x</span>
                 </div>
 
                 <div class="card__api--body">
                     <div class="card__api--body--right">
-                        <p>Olá! <br> ${texto}</p>
+                        <p>Olá! <br> ${text.texto}</p>
                         <span>12:49</span>
                     </div>
                 </div>
     
                 <div class="card__api--footer">
-                    <a class="btn" href="https://wa.me/55${numero}">${botao}</a>
-                    <a class="btn" href="https://wa.me/55${segundoNumero}">${segundoBotaoTexto}</a>
+                    <a class="btn" href="https://wa.me/55${newNumber}">${text.botao}</a>
+                    <a class="btn" href="https://wa.me/55${seconndNewNumber}">${text.segundoBotaoTexto}</a>
                     <a href="https://empiric.com.br/" target="_blank"><span><i>by</i> Empiric</span></a>
                 </div>
             </div>
@@ -40,21 +40,21 @@ export default {
             <div class="card__api">
                 <div class="card__api--top">
                     <div class="card__top--title">
-                        <h3>${titulo}</h3>
-                        <p>${subtitle}</p>
+                        <h3>${text.titulo}</h3>
+                        <p>${text.subtitle}</p>
                     </div>
                     <span class="card--x" onclick="fechar_api()">x</span>
                 </div>
 
                 <div class="card__api--body">
                     <div class="card__api--body--right">
-                        <p>Olá! <br> ${texto}</p>
+                        <p>Olá! <br> ${text.texto}</p>
                         <span>12:49</span>
                     </div>
                 </div>
 
                 <div class="card__api--footer">
-                    <a class="btn" href="https://wa.me/55${numero}">${botao}</a>
+                    <a class="btn" href="https://wa.me/55${newNumber}">${text.botao}</a>
                     <a href="https://empiric.com.br/" target="_blank"><span><i>by</i> Empiric</span></a>
                 </div>
             </div>
