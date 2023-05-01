@@ -1,29 +1,34 @@
 <template>
     <div class="home">
         <div class="api">
-            <div class="card" :style="this.posicao == true ? 'right: 0%' : 'left: 0%'">
-                <div class="card__top" :style="{background: this.corTopo}">
-                    <div class="card__top--title">
-                        <h3 :style="{color: this.corFonteTopo}">{{this.titleTopo}}</h3>
-                        <p :style="{color: this.corFonteTopo}">{{this.subtitle}}</p>
+            <Transition 
+            enter-active-class="animated animate__backInRight" 
+            leave-active-class="animated animate__bounceOut"
+            show mode="out-in" v-show="exibir">
+                <div class="card" :style="this.posicao == true ? 'right: 0%' : 'left: 0%'">
+                    <div class="card__top" :style="{background: this.corTopo}">
+                        <div class="card__top--title">
+                            <h3 :style="{color: this.corFonteTopo}">{{this.titleTopo}}</h3>
+                            <p :style="{color: this.corFonteTopo}">{{this.subtitle}}</p>
+                        </div>
+                        <span :style="{color: this.corFonteTopo}" class="card--x" @click="fechar_api()">x</span>
                     </div>
-                    <span :style="{color: this.corFonteTopo}" class="card--x" @click="fechar_api()">x</span>
-                </div>
 
-                <div class="card__body" :style="{background: this.corFundo}">
-                    <div class="card__body--right" :style="{background: this.corFundoBox}">
-                        <p :style="{color: this.corFundoText}">Olá</p>
-                        <p :style="{color: this.corFundoText}">{{this.texto}}</p>
-                        <span :style="{color: this.corFundoText}">{{hoursAndMinutes}}</span>
+                    <div class="card__body" :style="{background: this.corFundo}">
+                        <div class="card__body--right" :style="{background: this.corFundoBox}">
+                            <p :style="{color: this.corFundoText}">Olá</p>
+                            <p :style="{color: this.corFundoText}">{{this.texto}}</p>
+                            <span :style="{color: this.corFundoText}">{{hoursAndMinutes}}</span>
+                        </div>
+                    </div>
+
+                    <div class="card__footer" :style="{background: this.corFooter}">
+                        <a :style="{background: this.corBotao, color: this.corBotaoText}" class="btn" href="">{{this.textoBotao}}</a>
+                        <a v-if="otherNumber === true" :style="{background: this.corBotao, color: this.corBotaoText}" class="btn" href="">{{this.segundobotao}}</a>
+                        <a href="https://empiric.com.br/" target="_blank"><span><i>by</i> Empiric</span></a>
                     </div>
                 </div>
-
-                <div class="card__footer" :style="{background: this.corFooter}">
-                    <a :style="{background: this.corBotao, color: this.corBotaoText}" class="btn" href="">{{this.textoBotao}}</a>
-                    <a v-if="otherNumber === true" :style="{background: this.corBotao, color: this.corBotaoText}" class="btn" href="">{{this.segundobotao}}</a>
-                    <a href="https://empiric.com.br/" target="_blank"><span><i>by</i> Empiric</span></a>
-                </div>
-            </div>
+            </Transition>
 
             <img src="https://photosglobal.s3.sa-east-1.amazonaws.com/whatsapp.png" @click="abrir_api()" :style="this.posicao == true ? 'right: 1%' : 'left: 1%'" id="icon__whats">
 
@@ -41,6 +46,9 @@ export default {
     ,'corFooter', 'corBotao', 'corBotaoText', 'titleTopo','subtitle','textoBotao', 'texto'
     ,'otherNumber', 'segundobotao'],
     data() {
+        return {
+            exibir: true
+        }
     },
     computed: {
         hoursAndMinutes: function () {
@@ -56,9 +64,11 @@ export default {
     },
     methods: {
         abrir_api() {
-            document.querySelector('.card').style.display = 'block';
+            this.exibir = !this.exibir
+            //document.querySelector('.card').style.display = 'block';
             document.querySelector('#icon__whats').style.display = 'none';
             document.querySelector('#icon__x').style.display = 'block';
+
             if (screen.width <= 760) {
                 document.querySelector('#parametros').classList.remove('show');
                 document.querySelector('#cores').classList.remove('show');
@@ -66,7 +76,8 @@ export default {
             }
         },
         fechar_api() {
-            document.querySelector('.card').style.display = 'none';
+            this.exibir = !this.exibir
+            //document.querySelector('.card').style.display = 'none';
             document.querySelector('#icon__whats').style.display = 'block';
             document.querySelector('#icon__x').style.display = 'none';
         }

@@ -58,7 +58,7 @@ export default {
             bottom: 15px;
             width: 50px;
             z-index: 1000;
-            ${lado}
+            ${lado};
           }
           
           #icon__x span {

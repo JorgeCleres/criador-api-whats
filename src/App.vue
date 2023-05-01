@@ -7,34 +7,50 @@
                         <h2 class="headline headline--float">CONSTRUTOR DE API-WHATSAPP</h2>
                         <hr>
                         <div class="accordion" id="accordionExample">
-                            <Accordio titleAccordion="Texto" idParam="texto" @click="mobile()">
+                            <AccordioComponent titleAccordion="Texto" idParam="texto" @click="mobile()">
                                 <div class="col-sm form-group inputs">
+                                    <InputComponent 
+                                        @inputValue="text.title = $event"
+                                        v-model="text.title"
+                                        tipoInput = "text"
+                                        label= 'Título'
+                                        placeholder= 'Título' />
 
-                                    <label for="exampleInputEmail1">Título</label>
-                                    <input class="form-control" type="text" v-model="text.title" placeholder="Titulo">
+                                    <InputComponent 
+                                        @inputValue="text.subtitle = $event"
+                                        v-model="text.subtitle"
+                                        tipoInput = "text"
+                                        label= 'Sub título'
+                                        placeholder= 'Sub título' />
 
-                                    <label for="exampleInputEmail1">Sub título</label>
-                                    <input class="form-control" type="text" v-model="text.subtitle"
-                                        placeholder="Sub titulo">
+                                    <InputComponent 
+                                        @inputValue="text.texto = $event"
+                                        v-model="text.texto"
+                                        tipoInput = "text"
+                                        label= 'Mensagem'
+                                        placeholder= 'Mensagem' />
 
-                                    <label for="exampleInputEmail1">Texto</label>
-                                    <input class="form-control" type="text" v-model="text.texto" placeholder="Mensagem">
+                                    <InputComponent 
+                                        @inputValue="text.botao = $event"
+                                        v-model="text.botao"
+                                        tipoInput = "text"
+                                        label= 'Texto Botão'
+                                        placeholder= 'Texto Botão' />
 
-                                    <label for="exampleInputEmail1">Texto botão</label>
-                                    <input class="form-control" type="text" v-model="text.botao" placeholder="Texto botão">
-
-                                    <label v-if="param.otherNumber === true" for="exampleInputEmail1">Texto Segundo
-                                        botão</label>
-                                    <input v-if="param.otherNumber === true" class="form-control" type="text"
-                                        v-model="text.segundobotao" placeholder="Texto botão">
-
+                                    <InputComponent 
+                                        @inputValue="text.segundobotao = $event"
+                                        v-model="text.segundobotao"
+                                        tipoInput = "text"
+                                        label= 'Texto Segundo Botão'
+                                        placeholder= 'Texto Segundo Botão'/>
                                 </div>
-                            </Accordio>
+                            </AccordioComponent>
 
-                            <Accordio titleAccordion="Fundos" idParam="fundos" @click="mobile()">
+                            <AccordioComponent titleAccordion="Fundos" idParam="fundos" @click="mobile()">
                                 <div class="col-sm form-group">
                                     <div class="fundos">
                                         <div v-if="param.fundo == true">
+
                                             <input class="form-check-input" type="checkbox" id="checkbox"
                                                 v-model="param.fundo">
                                             <label class="form-check-label">adicionar Imagem</label>
@@ -64,66 +80,93 @@
                                         <div v-else>
                                             <input class="form-check-input mb-20" type="checkbox" id="checkbox"
                                                 v-model="param.fundo">
+                                                <label class="form-check-label">adicionar Cor</label>
 
-                                            <label for="exampleInputEmail1">adicionar Cor</label>
-                                            <input class="form-control" type="color" id="favcolor" name="favcolor"
-                                                v-model="style.fundo">
+                                            <InputComponent
+                                                @inputValue="style.fundo = $event"
+                                                v-model="style.fundo"
+                                                tipoInput = "color"
+                                                label= 'Adicionar Cor'
+                                                placeholder= 'Cor de fundo api'/>
                                         </div>
                                     </div>
                                 </div>
-                            </Accordio>
+                            </AccordioComponent>
 
-                            <Accordio titleAccordion="Cores" idParam="cores" @click="mobile()">
+                            <AccordioComponent titleAccordion="Cores" idParam="cores" @click="mobile()">
                                 <div class="col-sm form-group form--colors">
                                     <div class="colors">
-                                        <label for="exampleInputEmail1">Cor do fundo topo</label>
-                                        <input class="form-control" type="color" id="favcolor" name="favcolor"
-                                            v-model="style.top">
 
-                                        <label for="exampleInputEmail1">Cor de Texto e ícone topo</label>
-                                        <input class="form-control" type="color" id="favcolor" name="favcolor"
-                                            v-model="style.topOther">
+                                        <InputComponent
+                                            @inputValue="style.top = $event"
+                                            v-model="style.top"
+                                            tipoInput = "color"
+                                            label= 'Cor do fundo topo'
+                                            placeholder= 'Cor do fundo topo'/>
 
-                                        <label for="exampleInputEmail1">Cor da caixa de texto</label>
-                                        <input class="form-control" type="color" id="favcolor" name="favcolor"
-                                            v-model="style.fundoBox">
+                                        <InputComponent
+                                            @inputValue="style.topOther = $event"
+                                            v-model="style.topOther"
+                                            tipoInput = "color"
+                                            label= 'Cor de Texto e ícone topo'
+                                            placeholder= 'Cor de Texto e ícone topo'/>
 
-                                        <label for="exampleInputEmail1">Cor do Texto</label>
-                                        <input class="form-control" type="color" id="favcolor" name="favcolor"
-                                            v-model="style.fundoText">
+                                        <InputComponent
+                                            @inputValue="style.fundoBox = $event"
+                                            v-model="style.fundoBox"
+                                            tipoInput = "color"
+                                            label= 'Cor da caixa de texto'
+                                            placeholder= 'Cor da caixa de texto'/>
 
-                                        <label for="exampleInputEmail1">Cor do footer</label>
-                                        <input class="form-control" type="color" id="favcolor" name="favcolor"
-                                            v-model="style.footer">
+                                        <InputComponent
+                                            @inputValue="style.fundoText = $event"
+                                            v-model="style.fundoText"
+                                            tipoInput = "color"
+                                            label= 'Cor do Texto'
+                                            placeholder= 'Cor do Texto'/>
 
-                                        <label for="exampleInputEmail1">Cor do botão</label>
-                                        <input class="form-control" type="color" id="favcolor" name="favcolor"
-                                            v-model="style.botao">
+                                        <InputComponent
+                                            @inputValue="style.footer = $event"
+                                            v-model="style.footer"
+                                            tipoInput = "color"
+                                            label= 'Cor do footer'
+                                            placeholder= 'Cor do footer'/>
 
-                                        <label for="exampleInputEmail1">Cor de Texto botão</label>
-                                        <input class="form-control" type="color" id="favcolor" name="favcolor"
-                                            v-model="style.botaoText">
+                                        <InputComponent
+                                            @inputValue="style.botao = $event"
+                                            v-model="style.botao"
+                                            tipoInput = "color"
+                                            label= 'Cor do botão'
+                                            placeholder= 'Cor do botão'/>
+
+                                        <InputComponent
+                                            @inputValue="style.botaoText = $event"
+                                            v-model="style.botaoText"
+                                            tipoInput = "color"
+                                            label= 'Cor de Texto botão'
+                                            placeholder= 'Cor de Texto botão'/>
+
                                     </div>
                                 </div>
-                            </Accordio>
+                            </AccordioComponent>
 
-                            <Accordio titleAccordion="Parametros" idParam="parametros" @click="mobile()">
+                            <AccordioComponent titleAccordion="Parametros" idParam="parametros" @click="mobile()">
                                 <div class="col-sm param">
                                     <div class="form-check posicao">
                                         <p>Posição da API</p>
+
                                         <label class="form-check-label" for="checkbox">{{ this.style.posicao == true ?
                                             'DIREITA' : 'ESQUERDA' }}</label>
                                         <input class="form-check-input" type="checkbox" id="checkbox"
                                             v-model="style.posicao">
+
                                     </div>
 
-                                    <label for="exampleInputEmail1">Número Whats</label>
-                                    <input class="form-control" type="text" v-model="param.number" placeholder="Titulo"
-                                        v-mask="['(##) ####-####', '(##) #####-####']" />
-
-                                    <label v-if="param.otherNumber === true">Segundo Número Whats</label>
-                                    <input v-if="param.otherNumber === true" class="form-control" type="text"
-                                        v-model="param.numberTwo" placeholder="Segundo número"
+                                    <InputComponent 
+                                        @inputValue="param.number = $event"
+                                        v-model="param.number"
+                                        tipoInput = "text"
+                                        label= 'Número Whats'
                                         v-mask="['(##) ####-####', '(##) #####-####']" />
 
                                     <div class="form-check">
@@ -133,8 +176,27 @@
                                             v-model="param.otherNumber">
                                     </div>
 
+                                    <InputComponent v-if="param.otherNumber"
+                                        @inputValue="param.numberTwo = $event"
+                                        v-model="param.numberTwo"
+                                        tipoInput = "text"
+                                        label= 'Segundo Número Whats'
+                                        v-mask="['(##) ####-####', '(##) #####-####']" />
                                 </div>
-                            </Accordio>
+
+                            </AccordioComponent>
+
+                            <!-- <AccordioComponent titleAccordion="Animação" idParam="animacao" @click="mobile()">
+                                <select v-model="selected">
+                                    <option disabled value="">Please select one</option>
+                                    <option>animate__backInDown</option>
+                                    <option>animate__backInLeft</option>
+                                    <option>animate__backInRight</option>
+                                    <option>animate__backInUp</option>
+                                </select>
+
+                                <div>Selected: {{ selected }}</div>
+                            </AccordioComponent> -->
                         </div>
                         <button type="button" class="btn btn-primary" @click="download()">Baixar API</button>
                     </div>
@@ -142,13 +204,12 @@
             </div>
 
             <div class="col-lg-6" :style="!style.posicao == true ? 'order: 1' : 'order: 2'">
-                <keep-alive>
                     <Api :posicao=style.posicao :corTopo=style.top :corFonteTopo=style.topOther :corFundo=style.fundo
                         :corFundoBox=style.fundoBox :corFundoText=style.fundoText :corFooter=style.footer
                         :corBotao=style.botao :corBotaoText=style.botaoText :titleTopo=text.title :subtitle=text.subtitle
                         :textoBotao=text.botao :texto=text.texto :otherNumber=param.otherNumber
-                        :segundobotao=text.segundobotao />
-                </keep-alive>
+                        :segundobotao=text.segundobotao
+                    />
             </div>
         </div>
     </div>
@@ -156,18 +217,20 @@
 
 <script>
 import { mask } from 'vue-the-mask'
+import InputComponent from './components/InputComponent.vue'
 import Api from './components/Api.vue';
-import Accordio from './components/Accordio.vue';
-import TypeCss from './components/TypeCss.js';
-import TypeHtml from './components/TypeHtml.js';
-import TypeJs from './components/TypeJs.js';
+import AccordioComponent from './components/AccordioComponent.vue';
+import TypeCss from './components/api/TypeCss.js';
+import TypeHtml from './components/api/TypeHtml.js';
+import TypeJs from './components/api/TypeJs.js';
 
 export default {
     name: "App",
     directives: { mask },
-    components: { Api, Accordio },
+    components: { Api, AccordioComponent, InputComponent },
     data() {
         return {
+            selected: '',
             param: {
                 number: '(41) 99999-9999',
                 numberTwo: '(41) 99999-9999',
@@ -209,6 +272,8 @@ export default {
             TypeHtml.downloadHtml(this.text, this.param, seconndNewNumber, newNumber)
 
             TypeJs.downloadJs()
+
+            console.log(this.text)
         },
         mobile() {
             if (screen.width <= 760) {

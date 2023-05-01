@@ -4,11 +4,12 @@ export default {
         if (param.otherNumber) {
             datahtml = new Blob([`
             <link rel="stylesheet" href="./api/api.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
             <script type="text/javascript" src="./api/api.js"></script>
-            <div class="card__api">
+            <div class="card__api animate__animated animate__bounce animate__delay-2s">
                 <div class="card__api--top">
                     <div class="card__top--title">
-                        <h3>${text.titulo}</h3>
+                        <h3>${text.title}</h3>
                         <p>${text.subtitle}</p>
                     </div>
                     <span class="card--x" onclick="fechar_api()">x</span>
@@ -40,7 +41,7 @@ export default {
             <div class="card__api">
                 <div class="card__api--top">
                     <div class="card__top--title">
-                        <h3>${text.titulo}</h3>
+                        <h3>${text.title}</h3>
                         <p>${text.subtitle}</p>
                     </div>
                     <span class="card--x" onclick="fechar_api()">x</span>

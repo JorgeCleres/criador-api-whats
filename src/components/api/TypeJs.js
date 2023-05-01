@@ -9,20 +9,20 @@ export default {
             document.querySelector('.card__api--body span').innerHTML = temp
           }
 
-          setTimeout( () => {
-            fechar_api()
-          },4000)
-
           function abrir_api() {
-            document.querySelector('.card__api').style.display = 'block';
+            document.querySelector('.card__api').classList.remove('animate__backOutLeft')
+            document.querySelector('.card__api').classList.add('animate__backInRight')
             document.querySelector('#icon__whats').style.display = 'none';
             document.querySelector('#icon__x').style.display = 'block';
+            document.querySelector('.card__api').style.display = '0.1%';
           }
 
           function fechar_api() {
-            document.querySelector('.card__api').style.display = 'none';
+            document.querySelector('.card__api').classList.remove('animate__backInRight')
+            document.querySelector('.card__api').classList.add('animate__backOutLeft')
             document.querySelector('#icon__whats').style.display = 'block';
             document.querySelector('#icon__x').style.display = 'none';
+            document.querySelector('.card__api').style.display = '-30.1%';
           }
 
           document.addEventListener('mouseup', function(e) {
