@@ -14,7 +14,7 @@
                         <span :style="{color: this.corFonteTopo}" class="card--x" @click="fechar_api()">x</span>
                     </div>
 
-                    <div class="card__body" :style="{background: this.corFundo}">
+                    <div class="card__body" :style="this.paramFundo ? `background: ${this.corFundo}` : `background: ${this.imagemFundo}`">
                         <div class="card__body--right" :style="{background: this.corFundoBox}">
                             <p :style="{color: this.corFundoText}">Olá</p>
                             <p :style="{color: this.corFundoText}">{{this.texto}}</p>
@@ -44,7 +44,7 @@ export default {
     directives: {mask},
     props: ['posicao', 'corTopo', 'corFonteTopo', 'corFundo', 'corFundoBox', 'corFundoText'
     ,'corFooter', 'corBotao', 'corBotaoText', 'titleTopo','subtitle','textoBotao', 'texto'
-    ,'otherNumber', 'segundobotao'],
+    ,'otherNumber', 'segundobotao', 'paramFundo', 'imagemFundo'],
     data() {
         return {
             exibir: true

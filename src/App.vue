@@ -208,7 +208,7 @@
                         :corFundoBox=style.fundoBox :corFundoText=style.fundoText :corFooter=style.footer
                         :corBotao=style.botao :corBotaoText=style.botaoText :titleTopo=text.title :subtitle=text.subtitle
                         :textoBotao=text.botao :texto=text.texto :otherNumber=param.otherNumber
-                        :segundobotao=text.segundobotao
+                        :segundobotao=text.segundobotao :paramFundo=param.fundo :imagemFundo=this.style.fundoImagem
                     />
             </div>
         </div>
