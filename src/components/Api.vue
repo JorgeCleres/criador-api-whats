@@ -58,8 +58,9 @@ export default {
                 minutos = '0' + now.getMinutes()
             } else {
                 minutos = now.getMinutes()
-            }       
-            return now.getHours() + ":" + minutos
+            }
+            let hora = now.getHours() == 0 ? '00' : now.getHours()
+            return hora + ":" + minutos
         }
     },
     methods: {

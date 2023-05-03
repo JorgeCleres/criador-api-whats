@@ -7,11 +7,13 @@
                         <h2 class="headline headline--float">CONSTRUTOR DE API-WHATSAPP</h2>
                         <hr>
                         <div class="accordion" id="accordionExample">
-                            <!-- TEXTOS -->
-                            <AccordioComponent titleAccordion="Texto" idParam="texto" @click="mobile()">
+
+                            <!-- TOPO -->
+                            <AccordioComponent titleAccordion="Topo" idParam="texto" @click="mobile()">
                                 <div class="col-sm form-group inputs">
                                     <InputComponent 
                                         @inputValue="text.title = $event"
+                                        classeInput = "form-control"
                                         v-model="text.title"
                                         tipoInput = "text"
                                         label= 'Título'
@@ -20,40 +22,35 @@
 
                                     <InputComponent 
                                         @inputValue="text.subtitle = $event"
+                                        classeInput = "form-control"
                                         v-model="text.subtitle"
                                         tipoInput = "text"
                                         label= 'Sub título'
                                         placeholder= 'Sub título'
                                     />
 
-                                    <InputComponent 
-                                        @inputValue="text.texto = $event"
-                                        v-model="text.texto"
-                                        tipoInput = "text"
-                                        label= 'Mensagem'
-                                        placeholder= 'Mensagem'
+                                    <InputComponent
+                                        @inputValue="style.top = $event"
+                                        v-model="style.top"
+                                        tipoInput = "color"
+                                        label= 'Cor do fundo topo'
+                                        placeholder= 'Cor do fundo topo'
                                     />
 
-                                    <InputComponent 
-                                        @inputValue="text.botao = $event"
-                                        v-model="text.botao"
-                                        tipoInput = "text"
-                                        label= 'Texto Botão'
-                                        placeholder= 'Texto Botão'
+                                    <InputComponent
+                                        @inputValue="style.topOther = $event"
+                                        v-model="style.topOther"
+                                        tipoInput = "color"
+                                        label= 'Cor de Texto e ícone topo'
+                                        placeholder= 'Cor de Texto e ícone topo'
                                     />
 
-                                    <InputComponent 
-                                        @inputValue="text.segundobotao = $event"
-                                        v-model="text.segundobotao"
-                                        tipoInput = "text"
-                                        label= 'Texto Segundo Botão'
-                                        placeholder= 'Texto Segundo Botão'
-                                    />
+                                    
                                 </div>
                             </AccordioComponent>
 
-                            <!-- FUNDOS -->
-                            <AccordioComponent titleAccordion="Fundos" idParam="fundos" @click="mobile()">
+                            <!-- Centro -->
+                            <AccordioComponent titleAccordion="Meio" idParam="fundos" @click="mobile()">
                                 <div class="col-sm form-group">
                                     <div class="fundos">
                                         <div v-if="param.fundo == true">
@@ -61,20 +58,29 @@
                                             <input class="form-check-input" type="checkbox" id="checkbox" v-model="param.fundo">
                                             <label class="form-check-label">adicionar Imagem</label>
 
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" @click="checkImage('https://photosglobal.s3.sa-east-1.amazonaws.com/fundo.jpg')">
-                                                <img src="https://photosglobal.s3.sa-east-1.amazonaws.com/fundo.jpg">
-                                            </div>
-
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" @click="checkImage('https://photosglobal.s3.sa-east-1.amazonaws.com/fundo2.jpg')">
-                                                <img src="https://photosglobal.s3.sa-east-1.amazonaws.com/fundo2.jpg">
-                                            </div>
-
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3" @click="checkImage('https://photosglobal.s3.sa-east-1.amazonaws.com/fundo3.jpg')">
-                                                <img src="https://photosglobal.s3.sa-east-1.amazonaws.com/fundo3.jpg">
-                                            </div>
+                                                <InputComponent 
+                                                    nameInput="flexRadioDefault"
+                                                    @click="checkImage('https://photosglobal.s3.sa-east-1.amazonaws.com/fundo.jpg')"
+                                                    image = "https://photosglobal.s3.sa-east-1.amazonaws.com/fundo.jpg"
+                                                    tipoInput = "radio"
+                                                    classeInput = "form-check-input"
+                                                />
+                                            
+                                                <InputComponent 
+                                                    nameInput="flexRadioDefault"
+                                                    @click="checkImage('https://photosglobal.s3.sa-east-1.amazonaws.com/fundo2.jpg')"
+                                                    image = "https://photosglobal.s3.sa-east-1.amazonaws.com/fundo2.jpg"
+                                                    tipoInput = "radio"
+                                                    classeInput = "form-check-input"
+                                                />
+                                            
+                                                <InputComponent 
+                                                    nameInput="flexRadioDefault"
+                                                    @click="checkImage('https://photosglobal.s3.sa-east-1.amazonaws.com/fundo3.jpg')"
+                                                    image = "https://photosglobal.s3.sa-east-1.amazonaws.com/fundo3.jpg"
+                                                    tipoInput = "radio"
+                                                    classeInput = "form-check-input"
+                                                />
                                         </div>
 
                                         <div v-else>
@@ -88,29 +94,14 @@
                                                     placeholder= 'Cor de fundo api'
                                                 />
                                         </div>
-                                    </div>
-                                </div>
-                            </AccordioComponent>
 
-                            <!-- CORES -->
-                            <AccordioComponent titleAccordion="Cores" idParam="cores" @click="mobile()">
-                                <div class="col-sm form-group form--colors">
-                                    <div class="colors">
-
-                                        <InputComponent
-                                            @inputValue="style.top = $event"
-                                            v-model="style.top"
-                                            tipoInput = "color"
-                                            label= 'Cor do fundo topo'
-                                            placeholder= 'Cor do fundo topo'
-                                        />
-
-                                        <InputComponent
-                                            @inputValue="style.topOther = $event"
-                                            v-model="style.topOther"
-                                            tipoInput = "color"
-                                            label= 'Cor de Texto e ícone topo'
-                                            placeholder= 'Cor de Texto e ícone topo'
+                                        <InputComponent 
+                                            @inputValue="text.texto = $event"
+                                            classeInput = "form-control"
+                                            v-model="text.texto"
+                                            tipoInput = "text"
+                                            label= 'Mensagem'
+                                            placeholder= 'Mensagem'
                                         />
 
                                         <InputComponent
@@ -127,6 +118,38 @@
                                             tipoInput = "color"
                                             label= 'Cor do Texto'
                                             placeholder= 'Cor do Texto'
+                                        />
+
+                                    </div>
+                                </div>
+                            </AccordioComponent>
+
+                            <!-- Footer -->
+                            <AccordioComponent titleAccordion="Footer" idParam="cores" @click="mobile()">
+                                <div class="col-sm form-group form--colors">
+                                    <div class="colors">
+
+                                        <div class="form-check">
+                                            <label class="form-check-label" for="checkboxTwo">{{ this.param.otherNumber == true ? 'REMOVER SEGUNDO NÚMERO' : 'ADICIONAR SEGUNDO NÚMERO' }}</label>
+                                            <input class="form-check-input" type="checkbox" id="checkboxTwo" v-model="param.otherNumber">
+                                        </div>
+
+                                        <InputComponent 
+                                            @inputValue="text.botao = $event"
+                                            classeInput = "form-control"
+                                            v-model="text.botao"
+                                            tipoInput = "text"
+                                            label= 'Texto Botão'
+                                            placeholder= 'Texto Botão'
+                                        />
+
+                                        <InputComponent v-if="this.param.otherNumber"
+                                            @inputValue="text.segundobotao = $event"
+                                            classeInput = "form-control"
+                                            v-model="text.segundobotao"
+                                            tipoInput = "text"
+                                            label= 'Texto Segundo Botão'
+                                            placeholder= 'Texto Segundo Botão'
                                         />
 
                                         <InputComponent
@@ -168,19 +191,16 @@
 
                                     <InputComponent 
                                         @inputValue="param.number = $event"
+                                        classeInput = "form-control"
                                         v-model="param.number"
                                         tipoInput = "text"
                                         label= 'Número Whats'
                                         v-mask="['(##) ####-####', '(##) #####-####']"
                                     />
 
-                                    <div class="form-check">
-                                        <label class="form-check-label" for="checkboxTwo">{{ this.param.otherNumber == true ? 'REMOVER SEGUNDO NÚMERO' : 'ADICIONAR SEGUNDO NÚMERO' }}</label>
-                                        <input class="form-check-input" type="checkbox" id="checkboxTwo" v-model="param.otherNumber">
-                                    </div>
-
                                     <InputComponent v-if="param.otherNumber"
                                         @inputValue="param.numberTwo = $event"
+                                        classeInput = "form-control"
                                         v-model="param.numberTwo"
                                         tipoInput = "text"
                                         label= 'Segundo Número Whats'
@@ -191,8 +211,9 @@
                             </AccordioComponent>
 
                             <!-- ANIMAÇÃO -->
-                            <!-- <AccordioComponent titleAccordion="Animação" idParam="animacao" @click="mobile()">
-                                <select v-model="selected">
+                            <AccordioComponent titleAccordion="Animação" idParam="animacao" @click="mobile()">
+
+                                <select v-model="selectedOut">
                                     <option disabled value="">Please select one</option>
                                     <option>animate__backInDown</option>
                                     <option>animate__backInLeft</option>
@@ -200,8 +221,20 @@
                                     <option>animate__backInUp</option>
                                 </select>
 
-                                <div>Selected: {{ selected }}</div>
-                            </AccordioComponent> -->
+                                <div>Selected: {{ selectedOut }}</div>
+
+                                <select v-model="selectedEnter">
+                                    <option disabled value="">Please select one</option>
+                                    <option>animate__backInDown</option>
+                                    <option>animate__backInLeft</option>
+                                    <option>animate__backInRight</option>
+                                    <option>animate__backInUp</option>
+                                </select>
+
+                                <div>Selected: {{ selectedEnter }}</div>
+
+
+                            </AccordioComponent>
                         </div>
                         <button type="button" class="btn btn-primary" @click="download()">Baixar API</button>
                     </div>
@@ -209,11 +242,23 @@
             </div>
 
             <div :style="!style.posicao == true ? 'order: 1' : 'order: 2'">
-                    <Api :posicao=style.posicao :corTopo=style.top :corFonteTopo=style.topOther :corFundo=style.fundo
-                        :corFundoBox=style.fundoBox :corFundoText=style.fundoText :corFooter=style.footer
-                        :corBotao=style.botao :corBotaoText=style.botaoText :titleTopo=text.title :subtitle=text.subtitle
-                        :textoBotao=text.botao :texto=text.texto :otherNumber=param.otherNumber
-                        :segundobotao=text.segundobotao :paramFundo=param.fundo :imagemFundo=this.style.fundoImagem
+                    <Api 
+                        :posicao=style.posicao :corTopo=style.top 
+                        :corFonteTopo=style.topOther 
+                        :corFundo=style.fundo
+                        :corFundoBox=style.fundoBox 
+                        :corFundoText=style.fundoText 
+                        :corFooter=style.footer
+                        :corBotao=style.botao 
+                        :corBotaoText=style.botaoText 
+                        :titleTopo=text.title 
+                        :subtitle=text.subtitle
+                        :textoBotao=text.botao 
+                        :texto=text.texto 
+                        :otherNumber=param.otherNumber
+                        :segundobotao=text.segundobotao 
+                        :paramFundo=param.fundo 
+                        :imagemFundo=this.style.fundoImagem
                     />
             </div>
         </div>
@@ -235,7 +280,8 @@ export default {
     components: { Api, AccordioComponent, InputComponent },
     data() {
         return {
-            selected: '',
+            selectedOut: '',
+            selectedEnter: '',
             param: {
                 number: '(41) 99999-9999',
                 numberTwo: '(41) 99999-9999',
