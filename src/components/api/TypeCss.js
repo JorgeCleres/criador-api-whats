@@ -142,6 +142,10 @@ export default {
             color: ${style.botaoText};
             background: ${style.botao};
           }
+
+          .card__api .card__api--footer .segundo {
+            background: ${style.botaoTwo};
+          }
           
           .card__api .card__api--footer span {
             font-size: 10px;

@@ -1,12 +1,12 @@
 export default {
-    downloadHtml(text, param, seconndNewNumber, newNumber) {
+    downloadHtml(text, param, seconndNewNumber, newNumber, animacaoEnter) {
         var datahtml = ''
         if (param.otherNumber) {
             datahtml = new Blob([`
             <link rel="stylesheet" href="./api/api.css">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
             <script type="text/javascript" src="./api/api.js"></script>
-            <div class="card__api animate__animated animate__bounce animate__delay-2s">
+            <div class="card__api animate__animated ${animacaoEnter}">
                 <div class="card__api--top">
                     <div class="card__top--title">
                         <h3>${text.title}</h3>
@@ -24,7 +24,7 @@ export default {
     
                 <div class="card__api--footer">
                     <a class="btn" href="https://wa.me/55${newNumber}">${text.botao}</a>
-                    <a class="btn" href="https://wa.me/55${seconndNewNumber}">${text.segundoBotaoTexto}</a>
+                    <a class="btn segundo" href="https://wa.me/55${seconndNewNumber}">${text.botao}</a>
                     <a href="https://empiric.com.br/" target="_blank"><span><i>by</i> Empiric</span></a>
                 </div>
             </div>
@@ -36,9 +36,10 @@ export default {
             `]);
         } else {
             datahtml = new Blob([`
-            <link rel="stylesheet" href="api.css">
-            <script type="text/javascript" src="api.js"></script>
-            <div class="card__api">
+            <link rel="stylesheet" href="./api/api.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+            <script type="text/javascript" src="./api/api.js"></script>
+            <div class="card__api animate__animated ${animacaoEnter}">
                 <div class="card__api--top">
                     <div class="card__top--title">
                         <h3>${text.title}</h3>

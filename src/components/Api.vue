@@ -2,11 +2,11 @@
     <div class="home">
         <div class="api">
             <Transition 
-            enter-active-class="animated animate__backInRight" 
-            leave-active-class="animated animate__bounceOut"
+            :enter-active-class="'animated ' + enterAnimacao" 
+            :leave-active-class="'animated ' + OutAnimacao"
             show mode="out-in" v-show="exibir">
                 <div class="card" :style="this.posicao == true ? 'right: 0%' : 'left: 0%'">
-                    <div class="card__top" :style="{background: this.corTopo}">
+                    <div class="card__top" :style="{background: this.corTopo}" v-if="topo">
                         <div class="card__top--title">
                             <h3 :style="{color: this.corFonteTopo}">{{this.titleTopo}}</h3>
                             <p :style="{color: this.corFonteTopo}">{{this.subtitle}}</p>
@@ -14,7 +14,7 @@
                         <span :style="{color: this.corFonteTopo}" class="card--x" @click="fechar_api()">x</span>
                     </div>
 
-                    <div class="card__body" :style="this.paramFundo ? `background: ${this.corFundo}` : `background: ${this.imagemFundo}`">
+                    <div class="card__body" :style="this.paramFundo ? `background: ${this.corFundo}` : `background: ${this.imagemFundo}`" v-if="meio">
                         <div class="card__body--right" :style="{background: this.corFundoBox}">
                             <p :style="{color: this.corFundoText}">Olá</p>
                             <p :style="{color: this.corFundoText}">{{this.texto}}</p>
@@ -24,7 +24,7 @@
 
                     <div class="card__footer" :style="{background: this.corFooter}">
                         <a :style="{background: this.corBotao, color: this.corBotaoText}" class="btn" href="">{{this.textoBotao}}</a>
-                        <a v-if="otherNumber === true" :style="{background: this.corBotao, color: this.corBotaoText}" class="btn" href="">{{this.segundobotao}}</a>
+                        <a v-if="otherNumber === true" :style="{background: this.corBotaoTwo, color: this.corBotaoText}" class="btn" href="">{{this.segundobotao}}</a>
                         <a href="https://empiric.com.br/" target="_blank"><span><i>by</i> Empiric</span></a>
                     </div>
                 </div>
@@ -43,8 +43,8 @@ export default {
     name: 'ApiWhats',
     directives: {mask},
     props: ['posicao', 'corTopo', 'corFonteTopo', 'corFundo', 'corFundoBox', 'corFundoText'
-    ,'corFooter', 'corBotao', 'corBotaoText', 'titleTopo','subtitle','textoBotao', 'texto'
-    ,'otherNumber', 'segundobotao', 'paramFundo', 'imagemFundo'],
+    ,'corFooter', 'corBotao', 'corBotaoTwo', 'corBotaoText', 'titleTopo','subtitle','textoBotao', 'texto'
+    ,'otherNumber', 'segundobotao', 'paramFundo', 'imagemFundo', 'enterAnimacao', 'OutAnimacao', 'topo','meio'],
     data() {
         return {
             exibir: true
@@ -204,7 +204,7 @@ export default {
     height: auto;
     background: #004800;
     padding: 10px;
-    margin: 10px auto 0px !important;
+    margin: 20px auto 0px !important;
     color: white;
     text-decoration-line: none;
     border-radius: 10px;

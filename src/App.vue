@@ -132,6 +132,11 @@
                                             <input class="form-check-input" type="checkbox" id="checkboxTwo" v-model="param.otherNumber">
                                         </div>
 
+                                        <div v-if="param.otherNumber" class="form-check">
+                                            <label class="form-check-label" for="checkboxTwo">{{ param.ligacao == false ? 'Botão para ligação' : 'Botão whatsapp' }}</label>
+                                            <input class="form-check-input" type="checkbox" id="checkboxTwo" v-model="param.ligacao">
+                                        </div>
+
                                         <InputComponent 
                                             @inputValue="text.botao = $event"
                                             classeInput = "form-control"
@@ -141,7 +146,7 @@
                                             placeholder= 'Texto Botão'
                                         />
 
-                                        <InputComponent v-if="this.param.otherNumber"
+                                        <InputComponent v-if="param.otherNumber"
                                             @inputValue="text.segundobotao = $event"
                                             classeInput = "form-control"
                                             v-model="text.segundobotao"
@@ -166,6 +171,14 @@
                                             placeholder= 'Cor do botão'
                                         />
 
+                                        <InputComponent v-if="param.otherNumber"
+                                            @inputValue="style.botaoTwo = $event"
+                                            v-model="style.botaoTwo"
+                                            tipoInput = "color"
+                                            label= 'Cor do botão 2'
+                                            placeholder= 'Cor do botão 2'
+                                        />
+
                                         <InputComponent
                                             @inputValue="style.botaoText = $event"
                                             v-model="style.botaoText"
@@ -183,8 +196,20 @@
                                 <div class="col-sm param">
                                     <div class="form-check posicao">
                                         <p>Posição da API</p>
-                                        <label class="form-check-label" for="checkbox">{{ this.style.posicao == true ? 'DIREITA' : 'ESQUERDA' }}</label>
                                         <input class="form-check-input" type="checkbox" id="checkbox" v-model="style.posicao">
+                                        <label class="form-check-label" for="checkbox">{{ style.posicao == true ? 'Direita' : ' Esquerda' }}</label>
+                                    </div>
+
+                                    <div class="form-check posicao">
+                                        <p>{{ param.topo == true ? 'Esconder Topo' : 'Mostrar Topo' }}</p>
+                                        <input class="form-check-input" type="checkbox" id="checkbox" v-model="param.topo">
+                                        <label class="form-check-label" for="checkbox">{{ param.topo == true ? 'Esconder' : 'Mostrar' }}</label>
+                                    </div>
+
+                                    <div class="form-check posicao">
+                                        <p>{{ param.meio == true ? 'Esconder Meio' : 'Mostrar Meio' }}</p>
+                                        <input class="form-check-input" type="checkbox" id="checkbox" v-model="param.meio">
+                                        <label class="form-check-label" for="checkbox">{{ param.meio == true ? 'Esconder' : 'Mostrar' }}</label>
                                     </div>
 
                                     <InputComponent 
@@ -211,25 +236,21 @@
                             <!-- ANIMAÇÃO -->
                             <AccordioComponent titleAccordion="Animação" idParam="animacao" @click="mobile()">
 
-                                <select v-model="selectedOut">
-                                    <option disabled value="">Please select one</option>
-                                    <option>animate__backInDown</option>
-                                    <option>animate__backInLeft</option>
-                                    <option>animate__backInRight</option>
-                                    <option>animate__backInUp</option>
+                                <label class="form-check-label" for="checkbox">Animação Entrada</label>
+                                <select v-model="animacaoOut">
+                                    <option value="animate__backOutDown">Back out Down</option>
+                                    <option value="animate__backOutLeft">Back out Left</option>
+                                    <option value="animate__backOutRight">Back out Right</option>
+                                    <option value="animate__backOutUp">Back out Up</option>
                                 </select>
 
-                                <div>Selected: {{ selectedOut }}</div>
-
-                                <select v-model="selectedEnter">
-                                    <option disabled value="">Please select one</option>
-                                    <option>animate__backInDown</option>
-                                    <option>animate__backInLeft</option>
-                                    <option>animate__backInRight</option>
-                                    <option>animate__backInUp</option>
+                                <label class="form-check-label" for="checkbox">Animação Saída</label>
+                                <select v-model="animacaoEnter">
+                                    <option value="animate__backInDown">Back in Down</option>
+                                    <option value="animate__backInLeft">Back in Left</option>
+                                    <option value="animate__backInRight">Back in Right</option>
+                                    <option value="animate__backInUp">Back in Up</option>
                                 </select>
-
-                                <div>Selected: {{ selectedEnter }}</div>
 
                             </AccordioComponent>
                         </div>
@@ -241,13 +262,17 @@
 
             <div :style="!style.posicao == true ? 'order: 1' : 'order: 2'">
                     <Api 
-                        :posicao=style.posicao :corTopo=style.top 
+                        :topo= param.topo
+                        :meio= param.meio
+                        :posicao=style.posicao
+                        :corTopo=style.top 
                         :corFonteTopo=style.topOther 
                         :corFundo=style.fundo
                         :corFundoBox=style.fundoBox 
                         :corFundoText=style.fundoText 
                         :corFooter=style.footer
                         :corBotao=style.botao 
+                        :corBotaoTwo=style.botaoTwo 
                         :corBotaoText=style.botaoText 
                         :titleTopo=text.title 
                         :subtitle=text.subtitle
@@ -256,7 +281,9 @@
                         :otherNumber=param.otherNumber
                         :segundobotao=text.segundobotao 
                         :paramFundo=param.fundo 
-                        :imagemFundo=this.style.fundoImagem
+                        :imagemFundo=style.fundoImagem
+                        :enterAnimacao = animacaoEnter
+                        :OutAnimacao = animacaoOut
                     />
             </div>
         </div>
@@ -278,12 +305,15 @@ export default {
     components: { Api, AccordioComponent, InputComponent },
     data() {
         return {
-            selectedOut: '',
-            selectedEnter: '',
+            animacaoOut: 'animate__backOutDown',
+            animacaoEnter: 'animate__backInDown',
             param: {
                 number: '(41) 99999-9999',
                 numberTwo: '(41) 99999-9999',
                 otherNumber: false,
+                ligacao: false,
+                meio: true,
+                topo: true,
                 fundo: false
             },
             text: {
@@ -301,6 +331,7 @@ export default {
                 fundoText: "#000000",
                 footer: "#e6e6e6",
                 botao: "#004800",
+                botaoTwo: "#004800",
                 botaoText: "#ffffff",
                 posicao: true,
                 fundoImagem: ''
@@ -318,11 +349,9 @@ export default {
 
             TypeCss.downloadcss(this.style, this.param)
 
-            TypeHtml.downloadHtml(this.text, this.param, seconndNewNumber, newNumber)
+            TypeHtml.downloadHtml(this.text, this.param, seconndNewNumber, newNumber, this.animacaoEnter)
 
-            TypeJs.downloadJs()
-
-            console.log(this.text)
+            TypeJs.downloadJs(this.animacaoEnter, this.animacaoOut)
         },
         mobile() {
             if (screen.width <= 760) {
@@ -457,6 +486,16 @@ button.btn.btn-primary:hover {
 
 .param .posicao p {
     margin-left: -21px;
+    color: grey;
+}
+
+select {
+    width: 75%;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid #a5a5a5;
+    margin-bottom: 20px !important;
+    color: grey;
 }
 
 @media(max-width: 480px) {
@@ -470,5 +509,9 @@ button.btn.btn-primary:hover {
         margin: 20px auto;
         padding: 20px 5px;
         border-radius: 20px;
+    }
+
+    .form {
+        width: 100% !important;
     }
 }</style>

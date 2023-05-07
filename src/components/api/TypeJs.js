@@ -1,5 +1,5 @@
 export default {
-    downloadJs() {
+    downloadJs(animacaoEnter, animacaoOut) {
         var datajs = new Blob([`
           window.onload = function () {
             var dataAtual = new Date();
@@ -10,15 +10,15 @@ export default {
           }
 
           function abrir_api() {
-            document.querySelector('.card__api').classList.remove('animate__backOutLeft')
-            document.querySelector('.card__api').classList.add('animate__backInRight')
+            document.querySelector('.card__api').classList.remove('${animacaoOut}')
+            document.querySelector('.card__api').classList.add('${animacaoEnter}')
             document.querySelector('#icon__whats').style.display = 'none';
             document.querySelector('#icon__x').style.display = 'block';
             document.querySelector('.card__api').style.display = '0.1%';
           }
 
           function fechar_api() {
-            document.querySelector('.card__api').classList.remove('animate__backInRight')
+            document.querySelector('.card__api').classList.remove('${animacaoEnter}')
             document.querySelector('.card__api').classList.add('animate__backOutLeft')
             document.querySelector('#icon__whats').style.display = 'block';
             document.querySelector('#icon__x').style.display = 'none';
