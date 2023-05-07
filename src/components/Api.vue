@@ -167,7 +167,7 @@ export default {
 .card .card__body {
     padding: 20px 55px 20px 0px;
     display: grid;
-    background: rgb(255, 224, 139);
+    background: rgb(209, 209, 209);
 }
 
 .card .card__body--right {
@@ -204,7 +204,7 @@ export default {
     height: auto;
     background: #004800;
     padding: 10px;
-    margin: 15px auto 5px;
+    margin: 10px auto 0px !important;
     color: white;
     text-decoration-line: none;
     border-radius: 10px;

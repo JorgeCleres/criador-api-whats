@@ -46,3 +46,32 @@ export default {
     }
 }
 </script>
+
+
+<style scoped>
+    div {
+        margin: 20px 0px;
+    }
+
+    input {
+        color: #c9c9c9;
+    }
+
+    label {
+        color: grey;
+        font-size: 17px;
+        font-family: system-ui;
+    }
+
+    input[type=color] {
+        position: absolute;
+        margin: 0px 10px;
+    }
+
+    img {
+        width: 150px;
+        margin: 0px 10px;
+        height: 4vw;
+    }
+
+</style>

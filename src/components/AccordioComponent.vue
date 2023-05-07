@@ -1,20 +1,18 @@
 <template>
-    <!-- <div class="accordion" id="accordionExample"> -->
-        <div class="accordion-item" :id="1+idParam">
-            <h2 class="accordion-header" id="headingOne">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" :data-bs-target="'#'+idParam"
-                    aria-expanded="true" :aria-controls="idParam">
-                    {{titleAccordion}}
-                </button>
-            </h2>
-            <div :id="idParam" class="accordion-collapse collapse" aria-labelledby="headingOne"
-                data-bs-parent="#accordionExample">
-                <div class="accordion-body">
-                    <slot></slot>
-                </div>
+    <div class="accordion-item" :id="1+idParam">
+        <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" :data-bs-target="'#'+idParam"
+                aria-expanded="true" :aria-controls="idParam">
+                {{titleAccordion}}
+            </button>
+        </h2>
+        <div :id="idParam" class="accordion-collapse collapse" aria-labelledby="headingOne"
+            data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+                <slot></slot>
             </div>
         </div>
-    <!-- </div> -->
+    </div>
 </template>
 
 <script>
@@ -40,6 +38,10 @@ export default {
         color: grey !important;
         background-color: #ffffff !important;
         box-shadow: 0 0 0 white !important;
+    }
+
+    .accordion-item h2 {
+        padding: 0;
     }
 
     .accordion-button:focus {

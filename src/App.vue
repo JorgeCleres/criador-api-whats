@@ -33,16 +33,14 @@
                                         @inputValue="style.top = $event"
                                         v-model="style.top"
                                         tipoInput = "color"
-                                        label= 'Cor do fundo topo'
-                                        placeholder= 'Cor do fundo topo'
+                                        label= 'Cabeçalho:'
                                     />
 
                                     <InputComponent
                                         @inputValue="style.topOther = $event"
                                         v-model="style.topOther"
                                         tipoInput = "color"
-                                        label= 'Cor de Texto e ícone topo'
-                                        placeholder= 'Cor de Texto e ícone topo'
+                                        label= 'Texto e Ícone'
                                     />
 
                                     
@@ -55,8 +53,8 @@
                                     <div class="fundos">
                                         <div v-if="param.fundo == true">
 
+                                            <label class="form-check-label">Imagem</label>
                                             <input class="form-check-input" type="checkbox" id="checkbox" v-model="param.fundo">
-                                            <label class="form-check-label">adicionar Imagem</label>
 
                                                 <InputComponent 
                                                     nameInput="flexRadioDefault"
@@ -84,8 +82,8 @@
                                         </div>
 
                                         <div v-else>
-                                            <input class="form-check-input mb-20" type="checkbox" id="checkbox" v-model="param.fundo">
-                                                <label class="form-check-label">adicionar Cor</label>
+                                                <label class="form-check-label">Cor </label>
+                                                <input class="form-check-input mb-20" type="checkbox" id="checkbox" v-model="param.fundo">
                                                 <InputComponent
                                                     @inputValue="style.fundo = $event"
                                                     v-model="style.fundo"
@@ -130,7 +128,7 @@
                                     <div class="colors">
 
                                         <div class="form-check">
-                                            <label class="form-check-label" for="checkboxTwo">{{ this.param.otherNumber == true ? 'REMOVER SEGUNDO NÚMERO' : 'ADICIONAR SEGUNDO NÚMERO' }}</label>
+                                            <label class="form-check-label" for="checkboxTwo">Segundo Número</label>
                                             <input class="form-check-input" type="checkbox" id="checkboxTwo" v-model="param.otherNumber">
                                         </div>
 
@@ -233,9 +231,9 @@
 
                                 <div>Selected: {{ selectedEnter }}</div>
 
-
                             </AccordioComponent>
                         </div>
+
                         <button type="button" class="btn btn-primary" @click="download()">Baixar API</button>
                     </div>
                 </div>
@@ -298,7 +296,7 @@ export default {
             style: {
                 top: "#004800",
                 topOther: "#e6e6e6",
-                fundo: "#ffe08b",
+                fundo: "#d2d2d2",
                 fundoBox: "#ffffff",
                 fundoText: "#000000",
                 footer: "#e6e6e6",
@@ -355,8 +353,14 @@ export default {
 }
 
 .fundos #checkbox {
-    margin: 4px 10px 15px 0;
+    margin: 6px 10px 15px 10px;
 }
+
+label {
+        color: grey;
+        font-size: 17px;
+        font-family: system-ui;
+    }
 
 .form-check img {
     width: 25%;
@@ -388,19 +392,27 @@ input#favcolor {
 }
 
 .form {
-    background-image: url('https://photosglobal.s3.sa-east-1.amazonaws.com/fundo.jpg');
     position: relative;
     min-height: 100vh;
     width: 40% !important;
     margin: 0 auto !important;
+    background: linear-gradient(42deg, rgba(2,0,36,1) 0%, rgba(9,121,93,1) 56%, rgba(0,212,255,1) 100%);
 }
 
 .cont {
     background: white;
     width: 90%;
     margin: 50px auto;
-    padding: 40px 10px;
+    padding: 20px 10px 30px;
     border-radius: 20px;
+}
+
+.cont h2 {
+    color: #086755;
+}
+
+.cont hr {
+    margin: 5px auto 15px;
 }
 
 .inputs input.form-control {
@@ -419,14 +431,24 @@ input#favcolor {
     margin-bottom: 20px;
 }
 
-button {
-    width: 170px;
-    margin: 0 auto;
+button.btn.btn-primary {
+    background: white;
+    border: 2px solid linear-gradient(42deg, rgba(2,0,36,1) 0%, rgba(9,121,93,1) 56%, rgba(0,212,255,1) 100%) !important;
+    color: rgba(9,121,93,1);
+    transition: 0.3s
 }
 
-button.btn.btn-primary {
-    background: #01a884 !important;
-    border: 1px solid #01a884 !important;
+button.btn.btn-primary:hover {
+    scale: 1.09;
+    background: white;
+    border: 2px solid linear-gradient(42deg, rgba(2,0,36,1) 0%, rgba(9,121,93,1) 56%, rgba(0,212,255,1) 100%) !important;
+    color: rgba(9,121,93,1);
+}
+
+.btn {
+    width: 77%  !important; 
+    margin: 0 auto !important; 
+    font-weight: 600 !important; 
 }
 
 .param .posicao {
