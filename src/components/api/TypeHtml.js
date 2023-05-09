@@ -1,6 +1,7 @@
 export default {
     downloadHtml(text, param, seconndNewNumber, newNumber, animacaoEnter) {
         var datahtml = ''
+        var botaoTwo = param.ligacao == true ? `tel:+55${seconndNewNumber}` : `https://wa.me/55${seconndNewNumber}`
         if (param.otherNumber) {
             datahtml = new Blob([`
             <link rel="stylesheet" href="./api/api.css">
@@ -23,8 +24,8 @@ export default {
                 </div>
     
                 <div class="card__api--footer">
-                    <a class="btn" href="https://wa.me/55${newNumber}">${text.botao}</a>
-                    <a class="btn segundo" href="https://wa.me/55${seconndNewNumber}">${text.botao}</a>
+                    <a class="btn" target="_blank" href="https://wa.me/55${newNumber}">${text.botao}</a>
+                    <a class="btn segundo" target="_blank" href="${botaoTwo}">${text.botao}</a>
                     <a href="https://empiric.com.br/" target="_blank"><span><i>by</i> Empiric</span></a>
                 </div>
             </div>
@@ -56,7 +57,7 @@ export default {
                 </div>
 
                 <div class="card__api--footer">
-                    <a class="btn" href="https://wa.me/55${newNumber}">${text.botao}</a>
+                    <a class="btn" target="_blank" href="https://wa.me/55${newNumber}">${text.botao}</a>
                     <a href="https://empiric.com.br/" target="_blank"><span><i>by</i> Empiric</span></a>
                 </div>
             </div>

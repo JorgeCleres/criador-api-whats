@@ -19,7 +19,7 @@ export default {
 
           function fechar_api() {
             document.querySelector('.card__api').classList.remove('${animacaoEnter}')
-            document.querySelector('.card__api').classList.add('animate__backOutLeft')
+            document.querySelector('.card__api').classList.add('${animacaoOut}')
             document.querySelector('#icon__whats').style.display = 'block';
             document.querySelector('#icon__x').style.display = 'none';
             document.querySelector('.card__api').style.display = '-30.1%';

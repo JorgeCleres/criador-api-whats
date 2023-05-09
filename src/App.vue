@@ -53,7 +53,7 @@
                                     <div class="fundos">
                                         <div v-if="param.fundo == true">
 
-                                            <label class="form-check-label">Imagem</label>
+                                            <label class="form-check-label">Cor</label>
                                             <input class="form-check-input" type="checkbox" id="checkbox" v-model="param.fundo">
 
                                                 <InputComponent 
@@ -82,7 +82,7 @@
                                         </div>
 
                                         <div v-else>
-                                                <label class="form-check-label">Cor </label>
+                                                <label class="form-check-label">Imagem </label>
                                                 <input class="form-check-input mb-20" type="checkbox" id="checkbox" v-model="param.fundo">
                                                 <InputComponent
                                                     @inputValue="style.fundo = $event"
@@ -236,7 +236,7 @@
                             <!-- ANIMAÇÃO -->
                             <AccordioComponent titleAccordion="Animação" idParam="animacao" @click="mobile()">
 
-                                <label class="form-check-label" for="checkbox">Animação Entrada</label>
+                                <label class="form-check-label" for="checkbox">Animação Saída</label>
                                 <select v-model="animacaoOut">
                                     <option value="animate__backOutDown">Back out Down</option>
                                     <option value="animate__backOutLeft">Back out Left</option>
@@ -244,7 +244,7 @@
                                     <option value="animate__backOutUp">Back out Up</option>
                                 </select>
 
-                                <label class="form-check-label" for="checkbox">Animação Saída</label>
+                                <label class="form-check-label" for="checkbox">Animação Entrada</label>
                                 <select v-model="animacaoEnter">
                                     <option value="animate__backInDown">Back in Down</option>
                                     <option value="animate__backInLeft">Back in Left</option>

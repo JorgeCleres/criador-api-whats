@@ -1,5 +1,7 @@
 export default {
     downloadcss(style, param) {
+        var meio = param.meio == true ? 'display: block' : 'display: none'
+        var topo = param.topo == true ? 'display: block' : 'display: none'
         var lado = ''
         var imgOrColor = ''
         if(style.posicao == true) {
@@ -30,6 +32,7 @@ export default {
             background: ${style.top};
             padding: 5px 5px 10px;
             border-radius: 5px 5px 0 0;
+            ${topo};
           }
           
           .card__top--title {
@@ -74,7 +77,7 @@ export default {
             cursor: pointer;
             font-family: monospace;
             transition: 0.4s;
-            margin: 0 0 0 20px;
+            margin: -60px 0 0 20px;
             right: 0;
             position: absolute;
             color: ${style.topOther};
@@ -99,7 +102,8 @@ export default {
           .card__api .card__api--body {
             padding: 20px 55px 20px 0px;
             display: grid;
-            ${imgOrColor}
+            ${imgOrColor};
+            ${meio};
           }
           
           .card__api .card__api--body--right {
@@ -226,6 +230,9 @@ export default {
               }
               .card__api .card__api--body--right {
                   padding: 0px;
+              }
+              .card--x {
+                margin: -50px 0 0 20px;
               }
           }
         `]);
