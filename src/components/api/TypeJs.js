@@ -23,14 +23,11 @@ export default {
             document.querySelector('#icon__whats').style.display = 'block';
             document.querySelector('#icon__x').style.display = 'none';
             document.querySelector('.card__api').style.display = '-30.1%';
+            setTimeout(() => {
+              document.querySelector('.card__api').style.display = 'none';
+            }, 1000)
           }
 
-          document.addEventListener('mouseup', function(e) {
-          var card = document.querySelector('.card__api');
-            if (!card.contains(e.target)) {
-              fechar_api()
-            }
-          })
         `]);
   
         var downloadLinkJs = document.getElementById("aDownloadJs");

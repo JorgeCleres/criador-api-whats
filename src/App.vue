@@ -242,6 +242,11 @@
                                     <option value="animate__backOutLeft">Back out Left</option>
                                     <option value="animate__backOutRight">Back out Right</option>
                                     <option value="animate__backOutUp">Back out Up</option>
+                                    <option value="animate__rotateOut">animate__rotateOut</option>
+                                    <option value="animate__hinge">animate__hinge</option>
+                                    <option value="animate__rollOut">animate__rollOut</option>
+                                    <option value="animate__zoomOutDown">animate__zoomOutDown</option>
+                                    <option value="animate__zoomOutUp">animate__zoomOutUp</option>
                                 </select>
 
                                 <label class="form-check-label" for="checkbox">Animação Entrada</label>
@@ -250,6 +255,10 @@
                                     <option value="animate__backInLeft">Back in Left</option>
                                     <option value="animate__backInRight">Back in Right</option>
                                     <option value="animate__backInUp">Back in Up</option>
+                                    <option value="animate__rotateIn">animate__rotateIn</option>
+                                    <option value="animate__rollIn">animate__rollIn</option>
+                                    <option value="animate__zoomInDown">animate__zoomInDown</option>
+                                    <option value="animate__zoomInUp">animate__zoomInUp</option>
                                 </select>
 
                             </AccordioComponent>

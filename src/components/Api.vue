@@ -32,7 +32,7 @@
 
             <img src="https://photosglobal.s3.sa-east-1.amazonaws.com/whatsapp.png" @click="abrir_api()" :style="this.posicao == true ? 'right: 1%' : 'left: 1%'" id="icon__whats">
 
-            <img src="https://photosglobal.s3.sa-east-1.amazonaws.com/fechar.png" id="icon__x" :style="this.posicao == true ? 'right: 1%' : 'left: 1%'" @click="fechar_api()">
+            <img src="https://photosglobal.s3.sa-east-1.amazonaws.com/fechar.png" @click="fechar_api()" id="icon__x" :style="this.posicao == true ? 'right: 1%' : 'left: 1%'">
         </div>
     </div>
 </template>
