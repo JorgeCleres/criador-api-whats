@@ -58,7 +58,6 @@ export default {
 
                 <div class="card__api--footer">
                     <a class="btn" target="_blank" href="https://wa.me/55${newNumber}">${text.botao}</a>
-                    <a href="https://empiric.com.br/" target="_blank"><span><i>by</i> Empiric</span></a>
                 </div>
             </div>
         

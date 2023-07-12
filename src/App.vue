@@ -307,6 +307,7 @@ import AccordioComponent from './components/AccordioComponent.vue';
 import TypeCss from './components/api/TypeCss.js';
 import TypeHtml from './components/api/TypeHtml.js';
 import TypeJs from './components/api/TypeJs.js';
+import TypeText from './components/api/readme.js';
 
 export default {
     name: "App",
@@ -361,6 +362,8 @@ export default {
             TypeHtml.downloadHtml(this.text, this.param, seconndNewNumber, newNumber, this.animacaoEnter)
 
             TypeJs.downloadJs(this.animacaoEnter, this.animacaoOut)
+            
+            TypeText.downloadText()
         },
         mobile() {
             if (screen.width <= 760) {

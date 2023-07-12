@@ -30,7 +30,7 @@ export default {
           .card__api .card__api--top {
             display: flex;
             background: ${style.top};
-            padding: 5px 5px 10px;
+            padding: 3px 5px 10px;
             border-radius: 5px 5px 0 0;
             ${topo};
           }
@@ -139,12 +139,13 @@ export default {
             width: 60%;
             height: auto;
             padding: 10px;
-            margin: 15px auto 0px;
+            margin: 10px auto 10px;
             text-decoration-line: none;
             border-radius: 10px;
             text-align: center;
             color: ${style.botaoText};
             background: ${style.botao};
+            font-family: sans-serif;
           }
 
           .card__api .card__api--footer .segundo {

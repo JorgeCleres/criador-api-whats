@@ -66,7 +66,6 @@ export default {
     methods: {
         abrir_api() {
             this.exibir = !this.exibir
-            //document.querySelector('.card').style.display = 'block';
             document.querySelector('#icon__whats').style.display = 'none';
             document.querySelector('#icon__x').style.display = 'block';
 
@@ -78,7 +77,6 @@ export default {
         },
         fechar_api() {
             this.exibir = !this.exibir
-            //document.querySelector('.card').style.display = 'none';
             document.querySelector('#icon__whats').style.display = 'block';
             document.querySelector('#icon__x').style.display = 'none';
         }
